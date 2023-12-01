@@ -93,19 +93,29 @@ paths:
      '200':
        description: 'Successful Fetched User Details'
      '500':
-       description: 'ERROR'       
-     
-
-      
-     
-
-
+       description: 'ERROR'
+  /user/upduser:
+   post:
+    tags:
+     - GetUser[Auth]
+    summary: Deleting a user. 
+    description: Optional extended description in CommonMark or HTML.
+    requestBody:
+     content:
+      application/json:
+       schema:
+        $ref: '#/components/schemas/User[Delete]'
+    responses:
+     '200':
+       description: 'Successful Deleted User'
+     '500':
+       description: 'ERROR'
     
 
+    
+   
 
-
-
-
+    
 components:
   securitySchemes:
     apiKeyAuth:
@@ -161,7 +171,14 @@ components:
        type: integer
        example: "035121"
        required: true
-       
+    User[Delete]:
+      type: object
+      properties:
+       username:
+        type: string
+        example: "test1@yopmail.com"
+        required: true
+        
 
         
 
