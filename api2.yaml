@@ -11,6 +11,8 @@ tags:
     description: Auth APIs[SignUp]
   - name: LogIn[Auth]
     description: Auth APIs[LogIn]
+  - name: Signout[Auth]
+    description: Auth APIs[SignOut] 
   - name: GetUser[Auth]
     description: Auth APIs
 paths:
@@ -42,6 +44,22 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/User[Login]'
+      responses:
+        '200':
+          description: Successful login.
+        '500':
+          description: One of the parameters is wrong. Please correct it.
+  /auth/signout:
+   post:
+      tags:
+        - Signout[Auth]
+      summary: Signout  a user.
+      description: Optional extended description in CommonMark or HTML.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User[signoutuser]'
       responses:
         '200':
           description: Successful login.
@@ -181,7 +199,14 @@ components:
        type: integer
        example: "035121"
        required: true 
-       
+    User[signoutuser]:
+     type: object
+     properties:
+      Username:
+       type: string
+       example: "test1@yopmail.com"
+       required: true
+         
 
         
 
