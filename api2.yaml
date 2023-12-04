@@ -195,14 +195,14 @@ components:
        type: string
        example: "test1@yopmail.com"
        required: true
-      ConfirmationCode:
+      code:
        type: integer
        example: "035121"
        required: true 
     User[signoutuser]:
      type: object
      properties:
-      Username:
+      username:
        type: string
        example: "test1@yopmail.com"
        required: true
