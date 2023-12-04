@@ -93,19 +93,28 @@ paths:
      '200':
        description: 'Successful Fetched User Details'
      '500':
-       description: 'ERROR'       
+       description: 'ERROR'
+  /user/verifyuser:
+   post:
+    tags:
+     - SignUp[Auth]
+    summary: Verify user using  confirmation code.
+    description: Optional extended description in CommonMark or HTML.
+    requestBody:
+     content:
+      application/json:
+       schema:
+        $ref: '#/components/schemas/User[verifyuser]'
+    responses:
+     '200':
+       description: 'Successful Fetched User Details'
+     '500':
+       description: 'ERROR'    
+     
      
 
-      
      
-
-
-    
-
-
-
-
-
+              
 components:
   securitySchemes:
     apiKeyAuth:
@@ -161,6 +170,17 @@ components:
        type: integer
        example: "035121"
        required: true
+    User[verifyuser]:
+     type: object
+     properties:
+      Username:
+       type: string
+       example: "test1@yopmail.com"
+       required: true
+      ConfirmationCode:
+       type: integer
+       example: "035121"
+       required: true 
        
 
         
