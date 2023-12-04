@@ -94,28 +94,27 @@ paths:
        description: 'Successful Fetched User Details'
      '500':
        description: 'ERROR'
-  /user/upduser:
+  /user/verifyuser:
    post:
     tags:
-     - GetUser[Auth]
-    summary: Deleting a user. 
+     - SignUp[Auth]
+    summary: Verify user using  confirmation code.
     description: Optional extended description in CommonMark or HTML.
     requestBody:
      content:
       application/json:
        schema:
-        $ref: '#/components/schemas/User[Delete]'
+        $ref: '#/components/schemas/User[verifyuser]'
     responses:
      '200':
-       description: 'Successful Deleted User'
+       description: 'Successful Fetched User Details'
      '500':
-       description: 'ERROR'
-    
+       description: 'ERROR'    
+     
+     
 
-    
-   
-
-    
+     
+              
 components:
   securitySchemes:
     apiKeyAuth:
@@ -171,14 +170,18 @@ components:
        type: integer
        example: "035121"
        required: true
-    User[Delete]:
-      type: object
-      properties:
-       username:
-        type: string
-        example: "test1@yopmail.com"
-        required: true
-        
+    User[verifyuser]:
+     type: object
+     properties:
+      Username:
+       type: string
+       example: "test1@yopmail.com"
+       required: true
+      ConfirmationCode:
+       type: integer
+       example: "035121"
+       required: true 
+       
 
         
 
