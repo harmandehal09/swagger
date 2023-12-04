@@ -10,7 +10,7 @@ app.use(cors({
 const { swaggerServe, swaggerSetup } = require('./config')
   
 app.get("/",(res,resp)=>{ 
-    console.log("here")
+
     resp.send('results'); 
 });
 
